@@ -90,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         bill = parseFloat(billInput.value);
                     else
                         bill = 0;
-                    calculatorShareBill();
                     break;
                 case "tip":
                     var currentActiveButton = document.getElementsByClassName("tip-option--active")[0];
@@ -101,16 +100,15 @@ document.addEventListener("DOMContentLoaded", function () {
                         tip = parseInt(tipInput.value);
                     else
                         tip = 0;
-                    calculatorShareBill();
                     break;
                 case "people":
                     if (peopleInput.value)
                         numberOfPeople = parseInt(peopleInput.value);
                     else
                         numberOfPeople = 0;
-                    calculatorShareBill();
                     break;
             }
+            calculatorShareBill();
             alertToInputNumberOfPeople();
         });
     };

@@ -101,7 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 case "bill":
                     if (billInput.value) bill = parseFloat(billInput.value);
                     else bill = 0;
-                    calculatorShareBill();
                     break;
                 case "tip":
                     const currentActiveButton = document.getElementsByClassName(
@@ -114,15 +113,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     tipInput.classList.add("tip-option--active");
                     if (tipInput.value) tip = parseInt(tipInput.value);
                     else tip = 0;
-                    calculatorShareBill();
                     break;
                 case "people":
                     if (peopleInput.value)
                         numberOfPeople = parseInt(peopleInput.value);
                     else numberOfPeople = 0;
-                    calculatorShareBill();
                     break;
             }
+            calculatorShareBill();
             alertToInputNumberOfPeople();
         });
     };
