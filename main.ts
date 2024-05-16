@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const alertToInputNumberOfPeople = () => {
         if (numberOfPeople === 0) {
             peopleInput.classList.add("error-input");
+            errorElement.textContent = "Can't be zero"
             errorElement.style.display = "block";
         } else {
             peopleInput.classList.remove("error-input");
