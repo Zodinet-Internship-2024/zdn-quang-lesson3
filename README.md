@@ -1,2 +1,2 @@
-# zdn-quang-lesson3
-HTML, Scss, TypeScript (Lesson 3 Assignment) 
+# zdn-quang-lesson3-assignment-billSharing
+HTML, Scss, TypeScript (Lesson 3 Assignment)

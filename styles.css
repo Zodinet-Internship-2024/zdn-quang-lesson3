@@ -20,6 +20,7 @@ input[type=number] {
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -34,7 +35,7 @@ body {
   max-width: 1440px;
   padding: 20px;
 }
-.container .title {
+.container__title {
   letter-spacing: 10px;
   color: hsl(186, 14%, 43%);
   margin-bottom: 20px;
@@ -44,7 +45,7 @@ body {
   flex-direction: row;
   max-width: 800px;
   background-color: hsl(0, 0%, 100%);
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 20px;
   margin: 0 auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -61,6 +62,30 @@ body {
 .result-section {
   flex: 1;
   padding: 20px;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+.d-flex--col {
+  flex-direction: column;
+}
+.d-flex--space-between {
+  justify-content: space-between;
+}
+.d-flex--row {
+  flex-direction: row;
+}
+.d-flex #error {
+  display: none;
+  align-self: flex-end;
+  color: hsl(24, 100%, 50%);
+}
+
+.error-input {
+  outline: 1px solid hsl(24, 100%, 50%);
 }
 
 .input-container {
@@ -86,8 +111,8 @@ body {
   text-align: right;
   color: hsl(183, 100%, 15%);
 }
-.input-container input:hover {
-  outline: invert;
+.input-container input:hover, .input-container input:focus {
+  outline: 2px solid hsl(172, 67%, 45%);
 }
 .input-container input::placeholder {
   color: hsl(184, 14%, 56%);
@@ -99,14 +124,14 @@ body {
 }
 
 .tip-options {
+  list-style-type: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin-bottom: 20px;
 }
 
-.tip-option,
-.tip-custom {
+.tip-option {
   background-color: hsl(183, 100%, 15%);
   color: hsl(0, 0%, 100%);
   border: none;
@@ -121,17 +146,18 @@ body {
   width: 100%;
   height: 48px;
 }
-
 .tip-option:hover, .tip-option:focus {
   background-color: hsl(172, 67%, 45%);
 }
-
-.tip-custom {
+.tip-option--active {
+  background-color: hsl(172, 67%, 45%) !important;
+}
+.tip-option--custom {
   background-color: hsl(189, 41%, 97%);
   color: hsl(183, 100%, 15%);
   text-align: end;
 }
-.tip-custom:hover, .tip-custom:focus {
+.tip-option--custom:hover, .tip-option--custom:focus {
   border-color: hsl(172, 67%, 45%);
 }
 
@@ -151,17 +177,17 @@ body {
   align-items: center;
   margin-bottom: 20px;
 }
-.result-section .result .result-label {
+.result-section .result__label {
   text-align: left;
 }
-.result-section .result-label span, .result-section .result-label p {
+.result-section .result__label span, .result-section .result__label p {
   text-align: left;
 }
-.result-section .result-label p {
+.result-section .result__label p {
   color: hsl(184, 14%, 56%);
   margin: 0;
 }
-.result-section .result-value {
+.result-section .result__value {
   font-size: 24px;
   font-weight: bold;
 }
@@ -178,17 +204,17 @@ body {
   transition: background-color 0.3s;
 }
 .result-section .reset-button:hover, .result-section .reset-button:focus {
-  background-color: hsl(189, 41%, 97%);
+  background-color: hsl(185, 41%, 84%);
 }
 
-@media (min-width: 200px) and (max-width: 768px) {
+@media (max-width: 767px) {
   .container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 0px;
   }
-  .container .title {
+  .container__title {
     margin: auto;
   }
   .container .splitter {
@@ -196,6 +222,9 @@ body {
   }
   .container .splitter .input-section {
     margin-bottom: 20px;
+  }
+  .d-flex--row {
+    flex-direction: column;
   }
   .tip-options {
     grid-template-columns: repeat(2, 1fr);

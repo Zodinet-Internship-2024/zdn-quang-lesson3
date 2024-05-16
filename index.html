@@ -1,62 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
-<body>
 
-    <div class="container">
-        <div class="title">
-            <h1 >SPLI<br>TTER</h1>
-        </div>
-        <div class="splitter">
-            <div class="input-section">
+<body class="container">
+        <header class="container__title">
+            <h1>SPLI<br>TTER</h1>
+        </header>
+        <article class="splitter">
+            <section class="input-section">
                 <label for="bill">Bill</label>
                 <div class="input-container">
                     <span>$</span>
-                    <input type="number" id="bill" value="" placeholder="0.00">
+                    <input type="number" id="bill" value="" placeholder="0.00" required>
                 </div>
                 <br>
                 <label>Select Tip %</label>
-                <div class="tip-options">
-                    <button class="tip-option" value="5"  onclick="setDiscount(event)"> 5%</button>
-                    <button class="tip-option" value="10" onclick="setDiscount(event)">10%</button>
-                    <button class="tip-option" value="15" onclick="setDiscount(event)">15%</button>
-                    <button class="tip-option" value="25" onclick="setDiscount(event)">25%</button>
-                    <button class="tip-option" value="50" onclick="setDiscount(event)">50%</button>
-                    <input type="number" class="tip-custom" placeholder="Custom" onchange="setDiscount(event)">
-                </div>
+                <ul class="tip-options">
+                    <li>
+                        <button class="tip-option tip-select tip-option--active" value= "5"> 5%</button>
+                    </li>
+                    <li>
+                        <button class="tip-option tip-select" value="10">10%</button>
+                    </li>
+                    <li>
+                        <button class="tip-option tip-select" value="15">15%</button>
+                    </li>
+                    <li>
+                        <button class="tip-option tip-select" value="25">25%</button>
+                    </li>
+                    <li>
+                        <button class="tip-option tip-select" value="0">50%</button>
+                    </li>
+                    <li>
+                        <input type="number" id="tip" class="tip-option tip-option--custom" placeholder="Custom" >
+                    </li>
+                </ul>
                 <br>
-                <label for="people">Number of People</label>
+                <div class="d-flex d-flex--row">
+                    <label for="people">Number of People</label>
+                    <label for="error" id="error" hidden>Can't be zero</label>
+                </div>
                 <div class="input-container">
                     <span><img src="user.png" alt="person icon" class="person-icon"></span>
-                    <input onchange="setNumberOfPeople(event)" type="number" id="people" placeholder="0">
+                    <input type="number" id="people" class="error-input" placeholder="0" required>
                 </div>
-            </div>
-            <div class="result-section">
-                <div>
+            </section>
+            <section class="result-section">
+                <form>
                     <div class="result">
-                        <div class="result-label">
+                        <div class="result__label">
                             <span>Tip Amount</span>
                             <p>/ person</p>
                         </div>
-                        <p class="result-value"><span>$</span><span>0.00</span></p>
+                        <p class="result__value"><span>$</span><span id="tip-amount">0.00</span></p>
                     </div>
                     <div class="result">
-                        <div class="result-label">
+                        <div class="result__label">
                             <span>Total</span>
                             <p>/ person</p>
                         </div>
-                        <p class="result-value"><span>$</span><span>0.00</span></p>
+                        <p class="result__value"><span>$</span><span id="total-amount">0.00</span></p>
                     </div>
-                </div>
-                <button class="reset-button">RESET</button>
-            </div>
-        </div>
-    </div>
+                </form>
+                <button class="reset-button" id="reset-button">RESET</button>
+            </section>
+        </article>
 </body>
-<script src="index.js"></script>
+<script src="main.js"></script>
 </html>

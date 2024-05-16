@@ -1,11 +1,14 @@
 $strong-cyan: hsl(172, 67%, 45%);
-$verydark-cyan: hsl(183, 100%, 15%);
+$strong-error: hsl(24, 100%, 50%);
+$very-dark-cyan: hsl(183, 100%, 15%);
 $dark-grayish-cyan: hsl(186, 14%, 43%);
 $grayish-cyan: hsl(184, 14%, 56%);
 $light-grayish-cyan: hsl(185, 41%, 84%);
 $very-light-grayish-cyan: hsl(189, 41%, 97%);
 $white: hsl(0, 0%, 100%);
-
+$max-width: 1440px;
+$mobile: 768px;
+$px20: 20px;
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button,
@@ -30,24 +33,25 @@ input[type=number] {
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: $light-grayish-cyan;
-    color: $verydark-cyan;
+    color: $very-dark-cyan;
 }
 
 .container {
     text-align: center;
     height: 100%;
     width: 100%;
-    max-width: 1440px;
-    padding: 20px;
+    max-width: $max-width;
+    padding: $px20;
 
-    .title {
+    &__title {
         letter-spacing: 10px;
         color: $dark-grayish-cyan;
-        margin-bottom: 20px;
+        margin-bottom: $px20;
     }
 
     .splitter {
@@ -55,10 +59,10 @@ body {
         flex-direction: row;
         max-width: 800px;
         background-color: $white;
-        border-radius: 15px;
-        padding: 20px;
+        border-radius: $px20;
+        padding: $px20;
         margin: 0 auto;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 $px20 rgba(0, 0, 0, 0.1);
         width: 100%;
     }
 
@@ -73,7 +77,36 @@ body {
 .input-section,
 .result-section {
     flex: 1;
-    padding: 20px;
+    padding: $px20;
+}
+
+
+
+.d-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    &--col{
+        flex-direction: column;
+    }
+
+    &--space-between{
+        justify-content: space-between;
+    }
+
+    &--row{
+        flex-direction: row;
+    }
+
+    #error{
+        display: none;
+        align-self: flex-end;
+        color: $strong-error;
+    }
+}
+
+.error-input{
+    outline: 1px solid $strong-error;
 }
 
 .input-container {
@@ -98,10 +131,10 @@ body {
         width: 100%;
         font-size: 24px;
         text-align: right;
-        color: $verydark-cyan;
+        color: $very-dark-cyan;
 
-        &:hover {
-            outline:invert;
+        &:hover, &:focus {
+            outline:2px solid $strong-cyan;
         }
     }
 
@@ -113,20 +146,19 @@ body {
         background-color: $very-light-grayish-cyan;
         max-width: 24px;
         object-fit: cover;
-        // margin: auto;
     }
 }
 
 .tip-options {
+    list-style-type: none;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: $px20;
 }
 
-.tip-option,
-.tip-custom {
-    background-color: $verydark-cyan;
+.tip-option{
+    background-color: $very-dark-cyan;
     color: $white;
     border: none;
     border-radius: 5px;
@@ -140,70 +172,66 @@ body {
     width: 100%;
     height: 48px;
 
-}
-
-.tip-option{
     &:hover,
     &:focus {
         background-color: $strong-cyan;
     }
-}
-
-.tip-custom {
-    background-color: $very-light-grayish-cyan;
-    color: $verydark-cyan;
-    text-align: end;
-
-    &:hover,
-    &:focus {
-        // background-color: $white;
-        border-color: $strong-cyan;
+    &--active{
+        background-color: $strong-cyan !important;
     }
+
+    &--custom{
+        background-color: $very-light-grayish-cyan;
+        color: $very-dark-cyan;
+        text-align: end;
+    
+        &:hover,
+        &:focus {
+            // background-color: $white;
+            border-color: $strong-cyan;
+        }
+    }
+
 }
 
 .result-section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: $verydark-cyan;
+    background-color: $very-dark-cyan;
     border-radius: 15px;
     color: $white;
-    padding: 20px;
+    padding: $px20;
     margin-top: 0px;
 
     .result {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 20px;
+        margin-bottom: $px20;
 
-        .result-label{
+        &__label{
             text-align: left;
+            span, p{
+                text-align: left;
+            }
+            p {
+                color: $grayish-cyan;
+                margin: 0;
+            }
         }
-    }
-
-    .result-label {
-        span, p{
-            text-align: left;
+        &__value {
+            font-size: 24px;
+            font-weight: bold;
         }
-        p {
-            color: $grayish-cyan;
-            margin: 0;
-        }
-
-    }
-
-    .result-value {
-        font-size: 24px;
-        font-weight: bold;
     }
 
     .reset-button {
         width: 100%;
         padding: 15px;
-        margin-top: 20px;
+        margin-top: $px20;
         background-color: $strong-cyan;
-        color: $verydark-cyan;
+        color: $very-dark-cyan;
         border: none;
         border-radius: 5px;
         font-size: 18px;
@@ -212,19 +240,20 @@ body {
 
         &:hover,
         &:focus {
-            background-color: $very-light-grayish-cyan;
+            background-color: $light-grayish-cyan;
         }
     }
 }
 
-@media (min-width: 200px) and (max-width: 768px) {
+
+@media (max-width: #{$mobile - 1}) {
     .container {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         padding: 0px;
 
-        .title {
+        &__title {
             margin: auto;
         }
 
@@ -232,10 +261,15 @@ body {
             flex-direction: column;
     
             .input-section {
-                margin-bottom: 20px;
+                margin-bottom: $px20;
             }
         }
     }
+    .d-flex--row{
+        flex-direction: column;
+    }
+
+    
 
     .tip-options {
         grid-template-columns: repeat(2, 1fr);
