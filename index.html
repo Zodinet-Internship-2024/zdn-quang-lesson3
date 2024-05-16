@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+
+<body class="container">
+        <header class="container__title">
+            <h1>SPLI<br>TTER</h1>
+        </header>
+        <article class="splitter">
+            <section class="input-section">
+                <label for="bill">Bill</label>
+                <div class="input-container">
+                    <span>$</span>
+                    <input type="number" id="bill" value="" placeholder="0.00" required>
+                </div>
+                <br>
+                <label>Select Tip %</label>
+                <ul class="tip-options">
+                    <li>
+                        <button class="tip-option tip-select tip-option--active" value= "5"> 5%</button>
+                    </li>
+                    <li>
+                        <button class="tip-option tip-select" value="10">10%</button>
+                    </li>
+                    <li>
+                        <button class="tip-option tip-select" value="15">15%</button>
+                    </li>
+                    <li>
+                        <button class="tip-option tip-select" value="25">25%</button>
+                    </li>
+                    <li>
+                        <button class="tip-option tip-select" value="0">50%</button>
+                    </li>
+                    <li>
+                        <input type="number" id="tip" class="tip-option tip-option--custom" placeholder="Custom" >
+                    </li>
+                </ul>
+                <br>
+                <div class="d-flex d-flex--row">
+                    <label for="people">Number of People</label>
+                    <label for="error" id="error" hidden>Can't be zero</label>
+                </div>
+                <div class="input-container">
+                    <span><img src="user.png" alt="person icon" class="person-icon"></span>
+                    <input type="number" id="people" class="error-input" placeholder="0" required>
+                </div>
+            </section>
+            <section class="result-section">
+                <form>
+                    <div class="result">
+                        <div class="result__label">
+                            <span>Tip Amount</span>
+                            <p>/ person</p>
+                        </div>
+                        <p class="result__value"><span>$</span><span id="tip-amount">0.00</span></p>
+                    </div>
+                    <div class="result">
+                        <div class="result__label">
+                            <span>Total</span>
+                            <p>/ person</p>
+                        </div>
+                        <p class="result__value"><span>$</span><span id="total-amount">0.00</span></p>
+                    </div>
+                </form>
+                <button class="reset-button" id="reset-button">RESET</button>
+            </section>
+        </article>
+</body>
+<script src="main.js"></script>
+</html>
