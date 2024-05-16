@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var alertToInputNumberOfPeople = function () {
         if (numberOfPeople === 0) {
             peopleInput.classList.add("error-input");
+            errorElement.textContent = "Can't be zero";
             errorElement.style.display = "block";
         }
         else {
@@ -76,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
     Array.from(tipButtons).forEach(function (element) {
         setTip(element);
     });
-    var whatInput = function (input, type) {
+    var watchInput = function (input, type) {
         input.addEventListener("keydown", function (event) {
             keyDownValidator(event, type);
         });
@@ -90,7 +91,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         bill = parseFloat(billInput.value);
                     else
                         bill = 0;
-                    calculatorShareBill();
                     break;
                 case "tip":
                     var currentActiveButton = document.getElementsByClassName("tip-option--active")[0];
@@ -101,20 +101,19 @@ document.addEventListener("DOMContentLoaded", function () {
                         tip = parseInt(tipInput.value);
                     else
                         tip = 0;
-                    calculatorShareBill();
                     break;
                 case "people":
                     if (peopleInput.value)
                         numberOfPeople = parseInt(peopleInput.value);
                     else
                         numberOfPeople = 0;
-                    calculatorShareBill();
                     break;
             }
+            calculatorShareBill();
             alertToInputNumberOfPeople();
         });
     };
-    whatInput(billInput, "bill");
-    whatInput(tipInput, "tip");
-    whatInput(peopleInput, "people");
+    watchInput(billInput, "bill");
+    watchInput(tipInput, "tip");
+    watchInput(peopleInput, "people");
 });

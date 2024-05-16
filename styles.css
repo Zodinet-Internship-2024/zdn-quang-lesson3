@@ -23,7 +23,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
   background-color: hsl(185, 41%, 84%);
   color: hsl(183, 100%, 15%);
 }
@@ -180,7 +180,8 @@ body {
 .result-section .result__label {
   text-align: left;
 }
-.result-section .result__label span, .result-section .result__label p {
+.result-section .result__label span,
+.result-section .result__label p {
   text-align: left;
 }
 .result-section .result__label p {
@@ -216,12 +217,17 @@ body {
   }
   .container__title {
     margin: auto;
+    padding: 20px;
   }
   .container .splitter {
     flex-direction: column;
   }
   .container .splitter .input-section {
     margin-bottom: 20px;
+  }
+  .container .splitter .input-section,
+  .container .splitter .result-section {
+    padding: 16px;
   }
   .d-flex--row {
     flex-direction: column;

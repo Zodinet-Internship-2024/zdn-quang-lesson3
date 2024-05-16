@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const alertToInputNumberOfPeople = () => {
         if (numberOfPeople === 0) {
             peopleInput.classList.add("error-input");
+            errorElement.textContent = "Can't be zero"
             errorElement.style.display = "block";
         } else {
             peopleInput.classList.remove("error-input");
@@ -88,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTip(element);
     });
 
-    const whatInput = (input: HTMLInputElement, type: string) => {
+    const watchInput = (input: HTMLInputElement, type: string) => {
         input.addEventListener("keydown", (event: KeyboardEvent) => {
             keyDownValidator(event, type);
         });
@@ -101,7 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 case "bill":
                     if (billInput.value) bill = parseFloat(billInput.value);
                     else bill = 0;
-                    calculatorShareBill();
                     break;
                 case "tip":
                     const currentActiveButton = document.getElementsByClassName(
@@ -114,20 +114,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     tipInput.classList.add("tip-option--active");
                     if (tipInput.value) tip = parseInt(tipInput.value);
                     else tip = 0;
-                    calculatorShareBill();
                     break;
                 case "people":
                     if (peopleInput.value)
                         numberOfPeople = parseInt(peopleInput.value);
                     else numberOfPeople = 0;
-                    calculatorShareBill();
                     break;
             }
+            calculatorShareBill();
             alertToInputNumberOfPeople();
         });
     };
 
-    whatInput(billInput, "bill");
-    whatInput(tipInput, "tip");
-    whatInput(peopleInput, "people");
+    watchInput(billInput, "bill");
+    watchInput(tipInput, "tip");
+    watchInput(peopleInput, "people");
 });

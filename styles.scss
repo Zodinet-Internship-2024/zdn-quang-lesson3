@@ -10,15 +10,15 @@ $max-width: 1440px;
 $mobile: 768px;
 $px20: 20px;
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-input[type=number] {
+input[type="number"] {
     -moz-appearance: textfield; /* Firefox */
 }
 
@@ -36,7 +36,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100dvh;
     background-color: $light-grayish-cyan;
     color: $very-dark-cyan;
 }
@@ -80,32 +80,30 @@ body {
     padding: $px20;
 }
 
-
-
-.d-flex{
+.d-flex {
     display: flex;
     justify-content: space-between;
     align-items: start;
-    &--col{
+    &--col {
         flex-direction: column;
     }
 
-    &--space-between{
+    &--space-between {
         justify-content: space-between;
     }
 
-    &--row{
+    &--row {
         flex-direction: row;
     }
 
-    #error{
+    #error {
         display: none;
         align-self: flex-end;
         color: $strong-error;
     }
 }
 
-.error-input{
+.error-input {
     outline: 1px solid $strong-error;
 }
 
@@ -133,8 +131,9 @@ body {
         text-align: right;
         color: $very-dark-cyan;
 
-        &:hover, &:focus {
-            outline:2px solid $strong-cyan;
+        &:hover,
+        &:focus {
+            outline: 2px solid $strong-cyan;
         }
     }
 
@@ -157,7 +156,7 @@ body {
     margin-bottom: $px20;
 }
 
-.tip-option{
+.tip-option {
     background-color: $very-dark-cyan;
     color: $white;
     border: none;
@@ -176,22 +175,21 @@ body {
     &:focus {
         background-color: $strong-cyan;
     }
-    &--active{
+    &--active {
         background-color: $strong-cyan !important;
     }
 
-    &--custom{
+    &--custom {
         background-color: $very-light-grayish-cyan;
         color: $very-dark-cyan;
         text-align: end;
-    
+
         &:hover,
         &:focus {
             // background-color: $white;
             border-color: $strong-cyan;
         }
     }
-
 }
 
 .result-section {
@@ -210,9 +208,10 @@ body {
         align-items: center;
         margin-bottom: $px20;
 
-        &__label{
+        &__label {
             text-align: left;
-            span, p{
+            span,
+            p {
                 text-align: left;
             }
             p {
@@ -245,7 +244,6 @@ body {
     }
 }
 
-
 @media (max-width: #{$mobile - 1}) {
     .container {
         display: flex;
@@ -255,21 +253,26 @@ body {
 
         &__title {
             margin: auto;
+            padding: $px20;
         }
 
         .splitter {
             flex-direction: column;
-    
+
             .input-section {
                 margin-bottom: $px20;
             }
+
+            .input-section,
+            .result-section {
+                padding: 16px;
+            }
         }
     }
-    .d-flex--row{
+
+    .d-flex--row {
         flex-direction: column;
     }
-
-    
 
     .tip-options {
         grid-template-columns: repeat(2, 1fr);
