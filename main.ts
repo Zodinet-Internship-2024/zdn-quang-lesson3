@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTip(element);
     });
 
-    const whatInput = (input: HTMLInputElement, type: string) => {
+    const watchInput = (input: HTMLInputElement, type: string) => {
         input.addEventListener("keydown", (event: KeyboardEvent) => {
             keyDownValidator(event, type);
         });
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    whatInput(billInput, "bill");
-    whatInput(tipInput, "tip");
-    whatInput(peopleInput, "people");
+    watchInput(billInput, "bill");
+    watchInput(tipInput, "tip");
+    watchInput(peopleInput, "people");
 });

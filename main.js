@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     Array.from(tipButtons).forEach(function (element) {
         setTip(element);
     });
-    var whatInput = function (input, type) {
+    var watchInput = function (input, type) {
         input.addEventListener("keydown", function (event) {
             keyDownValidator(event, type);
         });
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alertToInputNumberOfPeople();
         });
     };
-    whatInput(billInput, "bill");
-    whatInput(tipInput, "tip");
-    whatInput(peopleInput, "people");
+    watchInput(billInput, "bill");
+    watchInput(tipInput, "tip");
+    watchInput(peopleInput, "people");
 });
