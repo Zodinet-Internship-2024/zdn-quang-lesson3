@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title">
+            <h1 >SPLI<br>TTER</h1>
+        </div>
+        <div class="splitter">
+            <div class="input-section">
+                <label for="bill">Bill</label>
+                <div class="input-container">
+                    <span>$</span>
+                    <input type="number" id="bill" value="" placeholder="0.00">
+                </div>
+                <br>
+                <label>Select Tip %</label>
+                <div class="tip-options">
+                    <button class="tip-option" value="5"  onclick="setDiscount(event)"> 5%</button>
+                    <button class="tip-option" value="10" onclick="setDiscount(event)">10%</button>
+                    <button class="tip-option" value="15" onclick="setDiscount(event)">15%</button>
+                    <button class="tip-option" value="25" onclick="setDiscount(event)">25%</button>
+                    <button class="tip-option" value="50" onclick="setDiscount(event)">50%</button>
+                    <input type="number" class="tip-custom" placeholder="Custom" onchange="setDiscount(event)">
+                </div>
+                <br>
+                <label for="people">Number of People</label>
+                <div class="input-container">
+                    <span><img src="user.png" alt="person icon" class="person-icon"></span>
+                    <input onchange="setNumberOfPeople(event)" type="number" id="people" placeholder="0">
+                </div>
+            </div>
+            <div class="result-section">
+                <div>
+                    <div class="result">
+                        <div class="result-label">
+                            <span>Tip Amount</span>
+                            <p>/ person</p>
+                        </div>
+                        <p class="result-value"><span>$</span><span>0.00</span></p>
+                    </div>
+                    <div class="result">
+                        <div class="result-label">
+                            <span>Total</span>
+                            <p>/ person</p>
+                        </div>
+                        <p class="result-value"><span>$</span><span>0.00</span></p>
+                    </div>
+                </div>
+                <button class="reset-button">RESET</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>
